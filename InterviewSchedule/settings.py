@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 import environ
-
+import django_heroku
 env = environ.Env()
 environ.Env.read_env()
 
@@ -30,7 +30,8 @@ SECRET_KEY = "=la749tlqe#_r80j%qc23_p9n%1f5+e!($k*ocru0q^9=9z_u("
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost",
+                 "interview-scheduler-1441.herokuapp.com"]
 
 
 # Application definition
@@ -80,12 +81,15 @@ WSGI_APPLICATION = "InterviewSchedule.wsgi.application"
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbkd1fd2935auc',
+        'USER': 'mqnhaadirkifzz',
+        'PASSWORD': 'ef40d1b5f408ff74565d852acc23266aa46bbd2725efdf1c601014e8a861d116',
+        'HOST': 'ec2-52-70-45-163.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -125,7 +129,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-
+django_heroku.settings(locals())
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = env('EMAIL_HOST')
