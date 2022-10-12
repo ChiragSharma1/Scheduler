@@ -36,3 +36,12 @@ It is divided into two section
 
 - Ongoing Interviews
 - Upcomming Interviews
+
+
+
+### Screenshot
+![image](https://user-images.githubusercontent.com/63919014/195421019-bcf1e765-c8dd-4e5b-9ec3-7e1b0abb3c30.png)
+
+![image](https://user-images.githubusercontent.com/63919014/195421641-8521a2b5-98aa-4394-b873-cc71b62d9a41.png)
+
+![image](https://user-images.githubusercontent.com/63919014/195421748-4318a93a-b66b-4429-962e-7ec76a9d00fd.png)
