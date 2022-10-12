@@ -1,2 +1,3 @@
 release: python manage.py migrate
-web: gunicorn InterviewSchedule.wsgi --log-file=-
+web: python manage.py runserver 0.0.0.0:\8000
+web: gunicorn InterviewSchedule.wsgi
