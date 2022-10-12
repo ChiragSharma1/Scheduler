@@ -1,0 +1,106 @@
+{% extends 'Interview/base.html' %}
+
+{% block title %}
+
+{% if is_edit_page %}
+Interview | Edit
+{% else %}
+Interview | Create
+{% endif%}
+
+{% endblock title %}
+
+{% block script %}
+<script>
+  function validatedForm(event){
+    
+    let inputElems = document.querySelectorAll("input[type='checkbox']:checked");
+    let count = inputElems.length;
+    console.log(count);
+    if (count < 2){
+        alert("Please select at least 2 participants");
+        event.preventDefault();
+        return false;
+    }
+    return true;
+  }
+</script>
+{% endblock script %}
+
+{% block content %}
+<div class="interviews">
+{% if error %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Hye Wait !!!</strong> {{error}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+  {% if is_edit_page %}
+    <h1>Edit your scheduled interview</h1>
+  {% else %}
+    <h1>Schedule new interview here</h1>
+  {% endif%}
+ {% if phase ==  "phase1" %}
+    <form class = "container" {% if is_edit_page %} action = "/interview/{{interview_id}}/edit" {% else %} action = "/interview/create" {% endif %} method = "post">
+      {% csrf_token %}
+      <div class="form-item">
+        <label for="name" class="form-label">Title</label>
+        <input type="text" class="form-control" id="name" name="name" {%if name%}value = {{name}}{% endif%} placeholder="Add Title" required>
+      </div>
+      <div class="form-item">
+        <label for="start_time" class="form-label">Select Start Time</label>
+        <input type="datetime-local" class="form-control" id="start_time" name="start_time" {% if start_time %} value = {{start_time}} {% endif %}required>
+      </div>
+      <div class="form-item">
+        <label for="end_time" class="form-label">Select End Time</label>
+        <input type="datetime-local" class="form-control" id="end_time" name="end_time" {% if end_time %} value= {{end_time}} {% endif %} required>
+      </div>
+      <center><button type="submit" class="btn btn-primary btn-manual" name = "add_participant" value = "submit">Next</button></center>
+    </form>
+{% endif %}
+{% if phase == "phase2" %}
+
+    <form class = "container" onSubmit="validatedForm(event)" {% if is_edit_page %} action = "/interview/{{interview_id}}/edit" {% else %} action = "/interview/create" {% endif %} method = "post">
+      {% csrf_token %}
+      <div class="form-item">
+        <p class = "form-control">{{name}}</p>
+        <input class="form-control" name = "name" value = {{name}} hidden />
+      </div>
+      <div class="form-item">
+        <p class = "form-control">{{start_time}}</p>
+        <input class="form-control" name = "start_time" value = {{start_time}} hidden/>
+      </div>
+      <div class="form-item">
+        <p class = "form-control">{{end_time}}</p>
+        <input class="form-control"name = "end_time" value = {{end_time}} hidden/>
+      </div>
+
+      <div class= "form-item">
+          <h3>Participant available during this time slot</h3>
+
+          {% for participant in checked_participants %}
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value={{participant.id}} id="participants" name="participants" checked>
+            <label class="form-check-label" for="participants">
+              {{participant.name}} | {{participant.email}}
+            </label>
+          </div>
+        {% endfor %}
+
+          {% for participant in valid_participants %}
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value={{participant.id}} id="participants" name="participants">
+              <label class="form-check-label" for="participants">
+                {{participant.name}} | {{participant.email}}
+              </label>
+            </div>
+
+            {% endfor %}
+      </div>
+      <button type="submit" class="btn btn-primary btn-manual" name = "participant_submit" value = "submit">Submit</button>
+    </form>
+
+ {% endif %}
+  </div>
+{% endblock content %}

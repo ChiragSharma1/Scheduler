@@ -1,0 +1,68 @@
+{% extends 'Interview/base.html' %}
+
+{% block title %}Interview | List{% endblock title %}
+
+
+{% block content %}
+    <div class="interviews">
+      <h1>Today's Scheduled Interviews</h1>
+      <ul class="interview-list">
+          {% for interview in todays_interviews %}
+              <li class="interview-list-item">
+                <div class="card">
+                  <h5 class="card-header">
+                    {{interview.name}}
+                  </h5>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between card-body-content">
+                      <p> {{interview.start_time}} </p>
+                      <div class="connector-line"> </div>
+                      <p> {{interview.end_time}} </p>
+                    </div>
+                    <div class="view-edit-options">
+                      <a href={% url 'Interview:interview_details' interview.id %}>
+                        <button class="btn btn-primary btn-manual">View</button>
+                      </a>
+
+                      <a href={% url 'Interview:edit_interview' interview.id %}>
+                        <button class="btn btn-primary btn-manual">Edit</button>
+                      </a>
+
+                    </div>
+                  </div>
+                </div>
+                </li>
+          {% endfor %}
+      </ul>
+
+      <h1>Upcoming Interviews</h1>
+      <ul class="interview-list">
+          {% for interview in upcoming_interviews %}
+          <li class="interview-list-item">
+            <div class="card">
+              <h5 class="card-header">
+                {{interview.name}}
+              </h5>
+              <div class="card-body">
+                <div class="d-flex justify-content-between card-body-content">
+                  <p> {{interview.start_time}} </p>
+                  <div class="connector-line"> </div>
+                  <p> {{interview.end_time}} </p>
+                </div>
+                <div class="view-edit-options">
+                  <a href={% url 'Interview:interview_details' interview.id %}>
+                    <button class="btn btn-primary btn-manual">View</button>
+                  </a>
+
+                  <a href={% url 'Interview:edit_interview' interview.id %}>
+                    <button class="btn btn-primary btn-manual">Edit</button>
+                  </a>
+
+                </div>
+              </div>
+            </div>
+            </li>
+          {% endfor %}
+      </ul>
+  </div>
+{% endblock content %}

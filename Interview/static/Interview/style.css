@@ -1,0 +1,297 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;  /*10px/16px = 62.5%  ---- 1rem = 10px*/
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+input {
+	letter-spacing: 0.6px;
+}
+
+button {
+	outline: none;
+	border: none;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+/* Body style */
+
+body {
+	line-height: 1.4;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	min-height: 100vh;
+	color: #222;
+	background-color: #fff;
+  font-size: 1.8rem;
+}
+
+/* buttons */
+
+.btn-manual{
+  font: inherit;
+  font-size: 1.6rem;
+  background-color: #6C63FF;
+  width: 15%;
+}
+
+/* Navbar */
+
+.navbar{
+  /* background-color: #A2B5BB; */
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  padding: 3rem 5rem;
+  font-size: 2rem;
+}
+
+/* Logo */
+.logo{
+  font-weight: 700;
+  font-size: 4rem;
+  color: #6C63FF;
+  text-transform: uppercase;
+}
+
+/* Menu */
+.nav-list{
+  display: flex;
+}
+
+.nav-list a:link, a:visited, a:active{
+  color: #6C63FF;
+}
+
+
+.nav-list-item{
+  color: #6C63FF;
+  font: inherit;
+}
+
+.nav-list a:hover{
+  color: #222;
+}
+
+.nav-list-item:not(:last-of-type){
+  margin-right: 4rem;
+}
+
+
+/* Home page styles */
+header{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 5rem;
+  padding: 5rem;
+}
+
+.header-img{
+  width: 100%;
+  height: 100%;
+}
+
+.header-img img{
+  height: auto;
+  width: 100%;
+}
+
+/* Dashboard styles */
+
+.dashboard{
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 4rem;
+}
+
+.card-manual{
+  /* background-color: #EDF0F0; */
+  background-color: #FEFEFE;
+  border-radius: 2.5rem;
+  box-shadow: 0 2.6px 8.5px rgba(0, 0, 0, 0.032), 0 21px 68px rgba(0, 0, 0, 0.06);
+  border: none;
+  padding: 3rem;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-manual .card-manual-heading{
+  font-size: 3.15rem;
+  font-weight: 500;
+  color: #3b3f39;
+  margin-bottom: 1.5rem;
+  letter-spacing: .8px;
+}
+
+.card-manual .card-manual-count{
+  font-weight: 700;
+  color: #6C63FF;
+  font-size: 6rem;
+}
+
+.capsule{
+  text-align: center;
+  display: grid;
+  grid-template-rows: 3fr 2fr;
+  grid-row-gap: 1.5rem;
+  justify-content: stretch;
+  padding: 2rem;
+}
+
+.capsule .card-manual-date{
+  background-color: #EDF0F0;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+}
+
+.dayfield{
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: #74899D;
+}
+
+.datefield{
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #3b3f39;
+}
+
+.card-manual-time{
+  font-weight: 700;
+  color: #6C63FF;
+  font-size: 4.8rem;
+}
+
+/* Styles for interview lists */
+
+.interviews{
+  padding: 5rem 25rem 5rem 25rem;
+}
+
+.interviews h1{
+  font-size: 3.2rem;
+  margin-bottom: 3rem;
+}
+
+.interviews .card{
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.interviews .card .card-body .card-body-content{
+  display: flex;
+  justify-content: space-between;
+}
+
+.interviews .card .card-body .card-body-content .connector-line{
+  height: 2px;
+  width: 55%;
+  align-self: center;
+  background-color: #6C63FF;
+}
+
+.interviews .card-header{
+  font-size: 2rem;
+  padding: 1.5rem 2.5rem;
+}
+
+.interviews .interview-list-item{
+  margin-bottom: 4rem;
+}
+
+.interviews .interview-list-item .card .card-body{
+  padding: 2.5rem;
+}
+
+.view-edit-options{
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.view-edit-options a{
+  width: 20%;
+}
+
+.view-edit-options a:not(:last-of-type){
+  margin-right: 2rem;
+}
+
+/* Create interview styles */
+
+.form-item{
+  margin-bottom: 3rem;
+}
+
+.form-label{
+  font-size: 2.2rem;
+}
+
+.form-control{
+  font: inherit;
+  outline: none;
+  font-size: 1.6rem;
+}
+
+/* interview details */
+
+.interview-details{
+  background-color: #FEFEFE;
+  border-radius: 2.5rem;
+  box-shadow: 0 2.6px 8.5px rgba(0, 0, 0, 0.032), 0 21px 68px rgba(0, 0, 0, 0.06);
+  border: none;
+  padding: 3rem;
+}
+
+.interview-details .interview-name{
+  text-align: center;
+  color: #6C63FF;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.interview-details .timings{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 3rem;
+}
+
+.interview-details .connector-line{
+  height: 2px;
+  width: 50%;
+  align-self: center;
+  background-color: #6C63FF;
+}
+
+.interview-details .participant-list{
+  margin-bottom: 2rem;  
+}
+
+.interview-details .participant-list .participant-list-item{
+  display: flex;
+}
+.interview-details .participant-list .participant-list-item p:not(:last-of-type){
+  margin-right: 3rem;
+}

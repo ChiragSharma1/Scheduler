@@ -1,0 +1,44 @@
+{% extends 'Interview/base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock title%}
+
+
+{% block content %}
+<header>
+  <div class="header-img"> 
+    <img src = "{% static '/Interview/home_bg.png' %}"/>
+  </div>
+  <div class="dashboard">
+    {% comment %} Date and time card {% endcomment %}
+    <div class="card-manual capsule"> 
+      <div class="card-manual-date">
+        <div class="dayfield"> Tuesday </div>
+        <div class="datefield"> Oct 12, 2022 </div>
+      </div>
+      <div class ="card-manual-time">
+        17:34
+      </div>
+    </div>
+
+    {% comment %} Total upcoming interviews {% endcomment %}
+    <div class="card-manual"> 
+      <h3 class="card-manual-heading"> Upcoming Interviews </h3>
+      <p class="card-manual-count"> 13 </p>
+    </div>
+
+    {% comment %} Total past interviews {% endcomment %}
+    <div class="card-manual"> 
+      <h3 class="card-manual-heading"> Completed Interviews </h3>
+      <p class="card-manual-count"> 127 </p>  
+    </div>
+
+    {% comment %} Total number of participants {% endcomment %}
+    <div class="card-manual">
+      <h3 class="card-manual-heading"> Total Participants </h3>
+      <p class="card-manual-count"> 69 </p>
+    </div>
+  </div>
+</header>
+
+{% endblock content %}

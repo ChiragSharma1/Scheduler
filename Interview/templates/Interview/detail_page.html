@@ -1,0 +1,34 @@
+{% extends 'Interview/base.html' %}
+
+{% block title %}
+{{interview.name}} | Interview
+{% endblock title%}
+
+
+{% block content %}
+<div class="interviews">
+  <h1> Details of the Interview</h1>
+
+  <div class="interview-details">
+
+    <h2 class="interview-name">{{interview.name}}</h2>
+
+    <div class="timings">
+      <p> {{interview.start_time}} </p>
+      <div class="connector-line"> </div>
+      <p> {{interview.end_time}}</p>
+    </div>
+
+    <ul class = "participant-list">
+
+    {% for participant in participant_list%}
+      <li class = "participant-list-item">
+        <p> {{participant.name}} </p>
+        <p> {{participant.email}} </p>
+      </li>
+    {% endfor %}
+    </ul>
+    <a href = {% url 'Interview:edit_interview' interview.id %}><button type="button" class="btn btn-primary btn-manual">Edit</button></a>
+  </ul>
+</div>
+{% endblock content %}

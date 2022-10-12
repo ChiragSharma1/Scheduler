@@ -1,0 +1,7 @@
+<p> page not found </p>
+
+{% if error %}
+<p>{{error}}</p>
+{% endif %}
+
+<p><a href = {% url 'Interview:index'%}>Go back to home </a></p>

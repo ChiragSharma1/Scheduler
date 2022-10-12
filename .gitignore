@@ -1,0 +1,19 @@
+
+# IDEs #
+.vscode
+.idea
+
+# env #
+env/
+
+
+# mypy 
+.mypy_cache/
+
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+**/migrations/*
+!**/migrations/__init__.py
